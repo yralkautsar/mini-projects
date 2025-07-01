@@ -10,7 +10,7 @@ import (
 	// Mengimpor package-package mini proyek yang sudah dimodularisasi.
 	// Path ini harus sesuai dengan nama module yang kamu definisikan di 'go.mod'
 	// ditambah dengan nama folder dari masing-masing package.
-	// Contoh: 'nama_module_mu/nama_folder_package_mu'
+	// Contoh: 'mini-projects/calculator-app'
 	calculator_app "mini-projects/calculator-app"          // Impor package kalkulator
 	contact_manager_app "mini-projects/contact-app"        // Impor package contact manager
 	parallel_downloader_app "mini-projects/downloader-app" // Impor package parallel downloader
@@ -37,17 +37,17 @@ func main() {
 
 		switch input { // Memeriksa input user dan mengarahkan ke mini proyek yang dipilih.
 		case "1":
-			// Memanggil fungsi utama dari package 'calculator_app'.
+			// Memanggil fungsi utama dari package 'calculator-app'.
 			// Fungsi ini akan mengambil alih kontrol CLI sampai user keluar dari kalkulator.
 			calculator_app.RunCalculatorCLI(reader)
 		case "2":
-			// Memanggil fungsi utama dari package 'todolist_app'.
+			// Memanggil fungsi utama dari package 'todolist-app'.
 			todolist_app.RunTodoListCLI(reader)
 		case "3":
-			// Memanggil fungsi utama dari package 'contact_manager_app'.
+			// Memanggil fungsi utama dari package 'contact-app'.
 			contact_manager_app.RunContactManagerCLI(reader)
 		case "4":
-			// Memanggil fungsi utama dari package 'parallel_downloader_app'.
+			// Memanggil fungsi utama dari package 'downloader-app'.
 			parallel_downloader_app.RunParallelDownloaderCLI(reader)
 		case "5":
 			fmt.Println("Thank you for using My Super Go App! Goodbye.")
