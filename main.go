@@ -23,7 +23,7 @@ func main() {
 	reader := bufio.NewReader(os.Stdin)
 
 	for { // Loop utama aplikasi, akan terus menampilkan menu sampai user memilih untuk keluar.
-		fmt.Println("\n--- My Super Go App ---")
+		fmt.Println("\n--- Mini Projects by YOGA ---")
 		fmt.Println("Choose a Mini Project:")
 		fmt.Println("1. Calculator")
 		fmt.Println("2. To-Do List")
