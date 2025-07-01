@@ -1,0 +1,3 @@
+module mini-projects
+
+go 1.24.4
