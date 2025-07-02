@@ -11,6 +11,7 @@ import (
 	// Path ini harus sesuai dengan nama module yang kamu definisikan di 'go.mod'
 	// ditambah dengan nama folder dari masing-masing package.
 	// Contoh: 'mini-projects/calculator-app'
+	bookstore_app "mini-projects/bookstore"                // Impor package bookstore
 	calculator_app "mini-projects/calculator-app"          // Impor package kalkulator
 	contact_manager_app "mini-projects/contact-app"        // Impor package contact manager
 	parallel_downloader_app "mini-projects/downloader-app" // Impor package parallel downloader
@@ -28,8 +29,9 @@ func main() {
 		fmt.Println("1. Calculator")
 		fmt.Println("2. To-Do List")
 		fmt.Println("3. Contact Manager")
-		fmt.Println("4. Parallel File Downloader") // Opsi untuk menjalankan Downloader
-		fmt.Println("5. Exit")                     // Opsi untuk keluar dari aplikasi gabungan
+		fmt.Println("4. Parallel File Downloader")
+		fmt.Println("5. Book Store (JSON)")
+		fmt.Println("6. Exit") // Opsi untuk keluar dari aplikasi gabungan
 		fmt.Print("Enter your choice: ")
 
 		input, _ := reader.ReadString('\n') // Membaca seluruh baris input sampai user menekan Enter.
@@ -50,6 +52,9 @@ func main() {
 			// Memanggil fungsi utama dari package 'downloader-app'.
 			parallel_downloader_app.RunParallelDownloaderCLI(reader)
 		case "5":
+			// Memanggil fungsi utama dari package 'bookstore-app'.
+			bookstore_app.RunBookCRUDCLI(reader)
+		case "6":
 			fmt.Println("Thank you for using My Super Go App! Goodbye.")
 			return // Keluar dari fungsi main, yang akan menghentikan eksekusi program.
 		default:
