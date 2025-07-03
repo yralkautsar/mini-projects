@@ -2,7 +2,19 @@
   {
     "id": 1,
     "title": "One-Piece",
-    "author": "Oda Sensei",
-    "year": 1995
+    "author": "Oda Nobunaga",
+    "year": 1994
+  },
+  {
+    "id": 2,
+    "title": "GO Programming",
+    "author": "Ngurah Ratna",
+    "year": 2022
+  },
+  {
+    "id": 3,
+    "title": "Phyton for Lifo",
+    "author": "Rangga Pandi",
+    "year": 1980
   }
 ]
