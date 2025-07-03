@@ -1,62 +1,71 @@
-// main.go
-package main // Deklarasi package utama yang bisa dieksekusi oleh Go
+// my-super-go-app/main.go
+package main
 
 import (
-	"bufio"   // Untuk membaca input dari user (keyboard)
-	"fmt"     // Untuk mencetak output ke konsol
-	"os"      // Untuk interaksi dengan sistem operasi, seperti membaca dari input standar (os.Stdin)
-	"strings" // Untuk operasi string seperti menghapus spasi atau karakter newline
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
 
-	// Mengimpor package-package mini proyek yang sudah dimodularisasi.
-	// Path ini harus sesuai dengan nama module yang kamu definisikan di 'go.mod'
-	// ditambah dengan nama folder dari masing-masing package.
-	// Contoh: 'mini-projects/calculator-app'
-	bookstore_app "mini-projects/bookstore"                // Impor package bookstore
-	calculator_app "mini-projects/calculator-app"          // Impor package kalkulator
-	contact_manager_app "mini-projects/contact-app"        // Impor package contact manager
-	parallel_downloader_app "mini-projects/downloader-app" // Impor package parallel downloader
-	todolist_app "mini-projects/todolist-app"              // Impor package to-do list
+	// Tidak perlu import log dan net/http di sini lagi karena hanya RunProductAPICLI yang membutuhkannya.
+
+	"mini-projects/bookstore"
+	calculator_app "mini-projects/calculator-app"
+	contact_manager_app "mini-projects/contact-app"
+	parallel_downloader_app "mini-projects/downloader-app"
+	"mini-projects/product_service" // <-- TAMBAHKAN INI
+	todolist_app "mini-projects/todolist-app"
 )
 
 func main() {
-	// Membuat objek 'reader' untuk membaca input dari keyboard.
-	// Ini akan digunakan oleh semua mini proyek yang memerlukan input dari user.
 	reader := bufio.NewReader(os.Stdin)
 
-	for { // Loop utama aplikasi, akan terus menampilkan menu sampai user memilih untuk keluar.
-		fmt.Println("\n--- Mini Projects by YOGA ---")
+	for {
+		fmt.Println("\n--- My Super Go App ---")
 		fmt.Println("Choose a Mini Project:")
 		fmt.Println("1. Calculator")
 		fmt.Println("2. To-Do List")
 		fmt.Println("3. Contact Manager")
 		fmt.Println("4. Parallel File Downloader")
-		fmt.Println("5. Book Store (JSON)")
-		fmt.Println("6. Exit") // Opsi untuk keluar dari aplikasi gabungan
+		fmt.Println("5. Book CRUD App (JSON)")
+
+		// Opsi Start/Stop Server API akan dinamis
+		if product_service.IsProductAPIRunning() {
+			fmt.Println("6. Stop Product API Server") // Tampilkan opsi stop jika server jalan
+		} else {
+			fmt.Println("6. Start Product API Server") // Tampilkan opsi start jika server mati
+		}
+
+		fmt.Println("7. Exit")
 		fmt.Print("Enter your choice: ")
 
-		input, _ := reader.ReadString('\n') // Membaca seluruh baris input sampai user menekan Enter.
-		input = strings.TrimSpace(input)    // Menghapus spasi di awal/akhir dan karakter newline dari input.
+		input, _ := reader.ReadString('\n')
+		input = strings.TrimSpace(input)
 
-		switch input { // Memeriksa input user dan mengarahkan ke mini proyek yang dipilih.
+		switch input {
 		case "1":
-			// Memanggil fungsi utama dari package 'calculator-app'.
-			// Fungsi ini akan mengambil alih kontrol CLI sampai user keluar dari kalkulator.
 			calculator_app.RunCalculatorCLI(reader)
 		case "2":
-			// Memanggil fungsi utama dari package 'todolist-app'.
 			todolist_app.RunTodoListCLI(reader)
 		case "3":
-			// Memanggil fungsi utama dari package 'contact-app'.
 			contact_manager_app.RunContactManagerCLI(reader)
 		case "4":
-			// Memanggil fungsi utama dari package 'downloader-app'.
 			parallel_downloader_app.RunParallelDownloaderCLI(reader)
 		case "5":
-			// Memanggil fungsi utama dari package 'bookstore-app'.
-			bookstore_app.RunBookCRUDCLI(reader)
+			bookstore.RunBookCRUDCLI(reader)
 		case "6":
-			fmt.Println("Thank you for using My Super Go App! Goodbye.")
-			return // Keluar dari fungsi main, yang akan menghentikan eksekusi program.
+			if product_service.IsProductAPIRunning() {
+				product_service.StopProductAPIServer() // Panggil fungsi stop jika server jalan
+			} else {
+				product_service.RunProductAPICLI() // Panggil fungsi start jika server mati
+			}
+		case "7":
+			fmt.Println("Thank you for using Mini-Projects! Sayonara!")
+			// Pastikan server API dihentikan dengan graceful saat keluar aplikasi utama
+			if product_service.IsProductAPIRunning() {
+				product_service.StopProductAPIServer()
+			}
+			return
 		default:
 			fmt.Println("Invalid option. Please choose a number from the menu.")
 		}

@@ -1,0 +1,8 @@
+Add :
+curl -X POST -H "Content-Type: application/json" -d '{"name": "Webcam Pro", "price": 800000, "stock": 15}' http://localhost:8080/api/products
+
+Lihat semua :
+curl http://localhost:8080/api/products
+
+Delete : 
+curl -X DELETE http://localhost:8080/api/products/{id}

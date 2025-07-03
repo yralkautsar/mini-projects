@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Webcam Pro",
+    "price": 800000,
+    "stock": 15
+  },
+  {
+    "id": 2,
+    "name": "Mouse Gaming",
+    "price": 550000,
+    "stock": 65
+  },
+  {
+    "id": 3,
+    "name": "Webcam Pro",
+    "price": 800000,
+    "stock": 15
+  },
+  {
+    "id": 4,
+    "name": "Webcam Pro",
+    "price": 800000,
+    "stock": 15
+  },
+  {
+    "id": 5,
+    "name": "Webcam Pro",
+    "price": 800000,
+    "stock": 15
+  }
+]
