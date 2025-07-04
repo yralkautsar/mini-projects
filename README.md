@@ -265,8 +265,4 @@ Kontribusi dipersilakan\! Jika Anda memiliki saran untuk perbaikan, mini-proyek 
 5. Push ke cabang (git push origin feature/AmazingFeature).  
 6. Buka Pull Request.
 
-## **📄 Lisensi**
-
-Proyek ini dilisensikan di bawah Lisensi MIT \- lihat file [LICENSE](https://www.google.com/search?q=LICENSE) untuk detailnya.
-
-**Dibuat dengan ❤️ oleh \[Nama Anda/Organisasi Anda\]**
+**Dibuat dengan ❤️ oleh \[YOGS / ICS TRAVELGROUP / IT TEAM\]**
