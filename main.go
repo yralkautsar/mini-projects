@@ -1,4 +1,4 @@
-// my-super-go-app/main.go
+// mini-projects/main.go
 package main
 
 import (
