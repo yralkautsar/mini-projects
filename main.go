@@ -13,7 +13,7 @@ import (
 	calculator_app "mini-projects/calculator-app"
 	contact_manager_app "mini-projects/contact-app"
 	parallel_downloader_app "mini-projects/downloader-app"
-	"mini-projects/product_service" // <-- TAMBAHKAN INI
+	"mini-projects/product_service"
 	todolist_app "mini-projects/todolist-app"
 )
 
