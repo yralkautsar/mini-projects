@@ -21,7 +21,7 @@ func main() {
 	reader := bufio.NewReader(os.Stdin)
 
 	for {
-		fmt.Println("\n--- My Super Go App ---")
+		fmt.Println("\n--- My Mini-Projects ---")
 		fmt.Println("Choose a Mini Project:")
 		fmt.Println("1. Calculator")
 		fmt.Println("2. To-Do List")
